@@ -2,6 +2,7 @@
 参加FlyAI 竞赛项目代码
 
 竞赛名称/排名：
+
 [X光片检测患者肺炎](https://www.flyai.com/d/ChestXray02) 排名：3/171
 
 [你画我猜](https://www.flyai.com/d/SimpleDrawing) 排名：2/26
