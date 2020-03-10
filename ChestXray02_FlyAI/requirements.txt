@@ -1,0 +1,7 @@
+flyai
+numpy
+Pillow==6.2.2
+torch==1.2.0
+torchvision==0.4.0
+timm
+efficientnet_pytorch

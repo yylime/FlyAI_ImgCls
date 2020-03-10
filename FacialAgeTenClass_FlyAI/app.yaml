@@ -1,0 +1,43 @@
+---
+name: Facial Age Classification
+author: xlz
+description: Facial Age Classification
+topic: Facial Age Classification
+algorithm: CNN
+language: python3
+virtualenv: flyai_env/bin/
+
+framework: Keras
+
+data:
+  id: FacialAgeTenClass
+  name: Facial Age Classification
+  category: image
+
+
+model:
+  processor: Processor
+  input_x: input_x
+  input_y: input_y
+  output_y: output_y
+  input:
+    columns:
+      - name: image_path
+        type: url
+    to_type: float
+    to_shape: [200,200,3]
+  output:
+    columns:
+      - name: label
+        type: int
+    to_type: float
+    to_shape: [-1,99]
+
+
+evaluate:
+  score: torch_accuracy
+
+servers:
+ - id: flyai
+   url: https://flyai.com
+...

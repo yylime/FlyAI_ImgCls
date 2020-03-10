@@ -1,0 +1,578 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>FLYAI项目文档</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; background-repeat: initial initial; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); background-position: initial initial; background-repeat: initial initial; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><p>&nbsp;</p><h3><a name="name" class="md-header-anchor"></a><span>ColorRectalCancerClassification_FlyAI</span></h3><h3><a name="gpl-licensehttpsbadgennetbadgelicensegplgreenhttpswwwgnuorglicensesgpl-30zh-cnhtml-gpl-licensehttpsbadgennetbadgesupportedtensorflowkeraspytorchgreenlist1httpsflyaicom-gpl-licensehttpsbadgennetbadgepython3greenhttpsflyaicom-gpl-licensehttpsbadgennetbadgeplatformwindowsmacoslinuxgreenlist1httpsflyaicom" class="md-header-anchor"></a><a href='https://www.gnu.org/licenses/gpl-3.0.zh-cn.html'><img src="https://badgen.net/badge/License/GPL/green" referrerpolicy="no-referrer" alt="GPL LICENSE"></a><span> </span><a href='https://flyai.com'><img src="https://badgen.net/badge/Supported/TensorFlow,Keras,PyTorch/green?list=1" referrerpolicy="no-referrer" alt="GPL LICENSE"></a><span> </span><a href='https://flyai.com'><img src="https://badgen.net/badge/Python/3.+/green" referrerpolicy="no-referrer" alt="GPL LICENSE"></a><span> </span><a href='https://flyai.com'><img src="https://badgen.net/badge/Platform/Windows,macOS,Linux/green?list=1" referrerpolicy="no-referrer" alt="GPL LICENSE"></a></h3><h3><a name="项目官方网址httpswwwflyaicomddataid" class="md-header-anchor"></a><a href='https://www.flyai.com/d/ColorRectalCancerClassification'><span>项目官方网址</span></a></h3><blockquote><p><span>通过实现算法并提交训练，获取奖金池奖金。小提示：抢先更新算法排行榜，有更大机会获取高额奖金哦！</span></p></blockquote><hr /><h4><a name="1参赛流程" class="md-header-anchor"></a><span>1.参赛流程</span></h4><ul><li><p><span>第一步：参赛选手从</span><a href='https://www.flyai.com'><span>FlyAI官网</span></a><span>选择比赛报名，可在线查看代码并下载代码</span></p><blockquote><p><span>下载的项目中不包含数据集，运行main.py会自动下载调试数据集</span></p><p><span>本地调试只有少量的数据，全量数据提交到GPU后会自动更新替换</span></p></blockquote></li><li><p><span>第二步：本地代码调试</span></p><blockquote><p><span>本地配置Python3.5以上的运行环境，并安装项目运行所需的Python依赖包</span></p><p><span>在main.py中编写神经网络，在processor.py中处理数据</span></p><p><span>使用model.py测试模型是否保存成功</span></p><p><span>使用predict.py测试模型是否评估成功</span></p><p><span>main.py中必须使用args.EPOCHS和args.BATCHl来读取数据</span></p></blockquote></li><li><p><span>第三步：提交到GPU训练，保存模型</span></p><blockquote><p><span>本地调试完成之后，提交代码到GPU，在全量数据上训练模型，保存最优模型。</span></p><p><span>提交GPU的方式有：FlyAI客户端、FlyAI脚本命令、网站在线提交。</span></p></blockquote></li><li><p><span>第四步：评估模型，获取奖金，实时提现</span></p><blockquote><p><span>GPU训练完成后，会调用model.py中的predict_all方法评估，并给出最后得分</span></p><p><span>高分的参赛选手，可实时获取奖金，通过微信提现</span></p></blockquote></li></ul><p><span>参赛选手还可以查看</span><a href='#div3'><span>样例项目代码详细说明</span></a></p><p><span>比赛遇到问题不要着急可以添加FlyAI小助手微信，小姐姐在线解答您的问题。</span></p><p><img src="https://static.flyai.com/flyai_dir4.png" alt="FlyAI小助手微信二维码" style="zoom:50%;" /></p><h4><a name="2样例项目结构说明" class="md-header-anchor"></a><span>2.样例项目结构说明</span></h4><p><img src="https://static.flyai.com/flyai_dir_2.png" alt="FlyAI项目目录" style="zoom:50%;" /></p><p>&nbsp;</p><ul><li><p><strong><code>flyai.exe/flyai</code></strong></p><blockquote><p><span>Windows用户双击flyai.exe,启动FlyAI客户端，本地调试项目</span></p><p><span>MAC和Linux用户在终端执行flyai脚本，本地调试项目</span></p><p><a href='#div2'><span>点击查看使用详情</span></a></p></blockquote><p><span>参赛选手还可以使用自己电脑上的Python环境，安装项目依赖，运行main.py来调试。</span></p></li><li><p><strong><code>使用jupyter调试.ipynb</code></strong></p><blockquote><p><span>比赛项目可以使用jupyter本地调试和提交</span></p><p><span>flyai.exe支持一键配置并启动jupyter lab本地调试和提交</span></p></blockquote></li><li><p><strong><code>app.yaml</code></strong></p><blockquote><p><span>项目的配置文件，默认不需要修改</span></p></blockquote></li><li><p><strong><code>main.py</code></strong></p><blockquote><p><span>项目运行主文件，在该文件中编写神经网络代码</span></p></blockquote></li><li><p><strong><code>net.py</code></strong></p><blockquote><p><span>使用PyTorch的选手可以在该文件中编写神经网络，并main.py中使用。</span></p><p><span>使用其它框架的选手可以忽略该文件</span></p></blockquote></li><li><p><strong><code>processor.py</code></strong></p><blockquote><p><span>数据输入(input)、输出(output)统一处理文件</span></p><p><span>FlyAI统一并简化了数据处理流程，参赛选手需要遵循统一的数据处理方式</span></p></blockquote></li><li><p><strong><code>model.py</code></strong></p><blockquote><p><span>包含模型保存和评估方法</span></p><p><span>排行榜分数调用该文件中predict_all方法获取，请参赛选手本地调试确保没问题</span></p></blockquote></li><li><p><strong><code>predict.py</code></strong></p><blockquote><p><span>模型本本评估调试文件</span></p></blockquote></li><li><p><strong><code>path.py</code></strong></p><blockquote><p><span>数据、日志、模型的公共路径</span></p></blockquote></li><li><p><strong><code>requirements.txt</code></strong></p><blockquote><p><span>项目中用到的Python依赖</span></p><p><span>引入新依赖时需要准确填写</span></p></blockquote></li></ul><p><span>参赛选手还可以查看</span><a href='#div3'><span>样例项目代码详细说明</span></a></p><h4><a name="3flyai的python库文档" class="md-header-anchor"></a><span>3.FlyAI的Python库文档</span></h4><p><span>为了便于数据的管理和处理，我们官方封装了FlyAI库</span></p><p><span>FlyAI的库和其它Python库的安装方法一样，使用PIP工具安装</span></p><blockquote><p><span>windows用户：pip所在路径pip.exe install -i </span><a href='https://pypi.flyai.com/simple' target='_blank' class='url'>https://pypi.flyai.com/simple</a><span> flyai</span></p><p><span>mac和linux用户：pip所在路径/pip install -i </span><a href='https://pypi.flyai.com/simple' target='_blank' class='url'>https://pypi.flyai.com/simple</a><span> flyai</span></p></blockquote><p><span>FlyAI库的主要用途是，处理并读取比赛数据，底层使用多线程实现，提高数据读取效率。</span></p><p><span>使用方式如下：</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#引入flyai数据处理类Dataset</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">dataset</span> <span class="cm-keyword">import</span> <span class="cm-variable">Dataset</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#初始化类对象，并设置整个数据集循环次数和批次大小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">dataset</span> = <span class="cm-variable">Dataset</span>(<span class="cm-variable">epochs</span>=<span class="cm-variable">args</span>.<span class="cm-property">EPOCHS</span>, <span class="cm-variable">batch</span>=<span class="cm-variable">args</span>.<span class="cm-property">BATCH</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#获取一批训练数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x_train</span>, <span class="cm-variable">y_train</span> = <span class="cm-variable">dataset</span>.<span class="cm-property">next_train_batch</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#获取一批验证数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x_val</span>, <span class="cm-variable">y_val</span> = <span class="cm-variable">dataset</span>.<span class="cm-property">next_validation_batch</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 176px;"></div><div class="CodeMirror-gutters" style="display: none; height: 176px;"></div></div></div></pre><hr /><h5><a name="flyaidataset文件详细文档" class="md-header-anchor"></a><span>flyai.dataset文件详细文档</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Dataset</span>:</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">epochs</span>=<span class="cm-number">5</span>, <span class="cm-variable">batch</span>=<span class="cm-number">32</span>, <span class="cm-variable">val_batch</span>=<span class="cm-number">32</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :param epochs: 训练的轮次，最大不超过100</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :param batch: 训练的批次大小，太大会导致显存不足</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :param val_batch: 验证的批次大小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">self</span>.<span class="cm-property">lib</span> = <span class="cm-variable">Lib</span>(<span class="cm-variable">epochs</span>, <span class="cm-variable">batch</span>, <span class="cm-variable">val_batch</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_step</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  根据dataset传入的epochs和batch，计算出来的训练总次数。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return: 返回训练总次数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_step</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_train_length</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取训练集总数量，本地调用返回的是100条，在GPU上调用返回全部数据集数量。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return: 返回训练集总数量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_train_length</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_validation_length</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取验证集总数量，本地调用返回的是100条，在GPU上调用返回全部数据集数量。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return: 返回验证集总数量</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_validation_length</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">next_train_batch</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取一批训练数据，返回数据的数量是dataset中batch的大小。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return: x_train,y_train</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">next_train_batch</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">next_validation_batch</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取一批验证数据，返回数据的数量是dataset中val_batch的大小。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return: x_val,y_val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">next_validation_batch</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">next_batch</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">size</span>=<span class="cm-number">32</span>, <span class="cm-variable">test_size</span>=<span class="cm-number">32</span>, <span class="cm-variable">test_data</span>=<span class="cm-keyword">True</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取一批训练和验证数据，可以自己设置返回的大小。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return:x_train,y_train,x_val,y_val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">next_batch</span>(<span class="cm-variable">size</span>, <span class="cm-variable">test_size</span>, <span class="cm-variable">test_data</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_all_processor_data</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取所有在processor.py中，通过input_x方法处理过的数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return:x_train,y_train,x_val,y_val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_all_processor_data</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_all_data</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取所有原始数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return:x_train,y_train,x_val,y_val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_all_data</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">get_all_validation_data</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  获取所有在processor.py中，通过input_x方法处理过的验证集数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :return:x_val,y_val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">self</span>.<span class="cm-property">lib</span>.<span class="cm-property">get_all_validation_data</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 1584px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1584px;"></div></div></div></pre><p>&nbsp;</p><h4><a name="4预训练模型的使用" class="md-header-anchor"></a><span>4.预训练模型的使用</span></h4><p><span>比赛可以使用FlyAI网站上公开的与训练模型</span></p><blockquote><p><span>模型查找地址：</span><a href='https://www.flyai.com/models' target='_blank' class='url'>https://www.flyai.com/models</a></p></blockquote><p><span>在网页中找到自己想要用的模型，之后点击“复制使用”按钮。</span></p><p><img src="https://static.flyai.com/flyai_dir3.png" referrerpolicy="no-referrer" alt="image-20200109150415456"></p><p><span>粘贴之后显示如下：</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 必须使用该方法下载模型，然后加载</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">utils</span> <span class="cm-keyword">import</span> <span class="cm-variable">remote_helper</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 下载到项目中的data/input/文件夹，默认会自动解压，具体文件路径可以下之后查看使用</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span> = <span class="cm-variable">remote_helper</span>.<span class="cm-property">get_remote_data</span>(<span class="cm-string">'https://www.flyai.com/m/bert-base-uncased.tar.gz'</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 88px;"></div><div class="CodeMirror-gutters" style="display: none; height: 88px;"></div></div></div></pre><p><span>具体使用请查看</span><a href='#div4'><span>预训练模型使用样例</span></a><span>，其它高级使用方式，请选手自行查找。</span></p><h5><a name="flyaiutils的remotehelper方法" class="md-header-anchor"></a><span>flyai.utils的remote_helper方法</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">get_remote_data</span>(<span class="cm-variable">remote_name</span>, <span class="cm-variable">unzip</span>=<span class="cm-keyword">True</span>):</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  下载FlyAI网站上的预训练模型</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  :param remote_name:模型的下载地址 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  :param unzip: 是否解压</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  :return: 返回没解压的路径，具体解压位置请下载之后查看</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp;  """</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">remote</span>.<span class="cm-property">get_remote_data</span>(<span class="cm-variable">remote_name</span>, <span class="cm-variable">unzip</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 176px;"></div><div class="CodeMirror-gutters" style="display: none; height: 176px;"></div></div></div></pre><p>&nbsp;</p><hr /><h4><a name="a-namediv1参赛选手常见问题a" class="md-header-anchor"></a><a name="div1"><span>参赛选手常见问题</span></a></h4><blockquote><p><strong><span>Q：使用自己的Python环境，遇到No module name &quot;flyai&quot;</span></strong></p><p><span>A：先找到使用的Python对应的pip.exe的位置</span></p><p><span>（自己电脑上可能有多个Python和pip，安装目标不要弄错。）</span></p><ul><li><span>windows用户在终端执行：pip所在路径pip.exe install -i </span><a href='https://pypi.flyai.com/simple' target='_blank' class='url'>https://pypi.flyai.com/simple</a><span> flyai</span></li><li><span>mac和linux用户在终端执行：pip所在路径/pip install -i </span><a href='https://pypi.flyai.com/simple' target='_blank' class='url'>https://pypi.flyai.com/simple</a><span> flyai</span></li><li><span>其他 No module name &quot;xxxx&quot;问题 也可以参考上面</span></li></ul><p><strong><span>Q：FlyAI自带的Python环境在哪,会不会覆盖本地环境？</span></strong></p><p><span>A：FlyAI不会覆盖本地现有的Python环境。</span></p><ul><li><span>windows用户:</span></li></ul><p><span>C://Users//{你计算机用户名}//.flyai//env//python.exe</span></p><p><span>C://Users//{你计算机用户名}///.flyai//env//Scriptspip.exe</span></p><ul><li><span>mac和linux用户:</span></li></ul><p><span>/Users/{你计算机用户名}/.flyai/env/bin/python3.6</span></p><p><span>/Users/{你计算机用户名}/.flyai/env/bin/pip</span></p></blockquote><p><span>其它更多常见问题，请访问文档中心查看:</span><a href='https://doc.flyai.com/question.html'><span>常见问题</span></a></p><hr /><h4><a name="a-namediv2flyai本地调试代码指南a" class="md-header-anchor"></a><a name="div2"><span>FlyAI本地调试代码指南</span></a></h4><h4><a name="方式一windows客户端调试" class="md-header-anchor"></a><span>方式一：Windows客户端调试</span></h4><h5><a name="1-下载项目并解压" class="md-header-anchor"></a><span>1. 下载项目并解压</span></h5><h5><a name="2进入到项目目录下双击执行flyaiexe程序" class="md-header-anchor"></a><span>2.进入到项目目录下，双击执行flyai.exe程序</span></h5><blockquote><p><span>第一次使用需要使用微信扫码登录</span></p><p><span>杀毒软件可能会误报，点击信任该程序即可</span></p></blockquote><h5><a name="3本地开发调试" class="md-header-anchor"></a><span>3.本地开发调试</span></h5><blockquote><p><span>运行flyai.exe程序，点击&quot;本地调试&quot;按钮，输入循环次数和数据量，点击运行即可调用main.py</span></p><p><span>如果出现 No Model Name &quot;xxx&quot;错误，需在 requirements.txt 填写项目依赖</span></p><p><span>如果使用本地IDE开发，需要安装“flyai”依赖并导入项目，运行main.py </span></p></blockquote><h5><a name="4下载本地测试数据" class="md-header-anchor"></a><span>4.下载本地测试数据</span></h5><blockquote><p><span>运行flyai.exe程序，点击&quot;下载数据&quot;按钮，程序会下载100条调试数据</span></p></blockquote><h5><a name="4提交到gpu训练" class="md-header-anchor"></a><span>4.提交到GPU训练</span></h5><p><span>项目中有新的Python包引用，必须在 requirements.txt 文件中指定包名，否则线上运行会找不到包。</span></p><p><span>不填写版本号将默认安装最新版</span></p><blockquote><p><span>运行flyai.exe程序，点击&quot;提交到GPU&quot;按钮，输入循环次数和数据量，点击运行即可提交到GPU训练。</span></p></blockquote><p><span>返回sucess状态，代表提交离线训练成功</span></p><p><span>训练结束会以微信和邮件的形式发送结果通知</span></p><h4><a name="方式二使用jupyter调试" class="md-header-anchor"></a><span>方式二：使用Jupyter调试</span></h4><p><span>运行flyai.exe程序，扫码登录之后</span></p><p><span>点击&quot;使用jupyter调试&quot;按钮，一键打开jupyter lab 操作界面</span></p><h5><a name="1本地运行" class="md-header-anchor"></a><span>1.本地运行</span></h5><p><span>在jupter中运行 run main.py 命令即可在本地训练调试代码</span></p><p><span>如果出现 No Model Name &quot;xxx&quot;错误，需在 requirements.txt 填写项目依赖</span></p><h5><a name="2提交到gpu训练" class="md-header-anchor"></a><span>2.提交到GPU训练</span></h5><p><span>项目中有新的Python包引用，必须在 requirements.txt 文件中指定包名，否则线上运行会找不到包。</span></p><p><span>不填写版本号将默认安装最新版</span></p><p><span>在jupyter环境下运行  ! flyai.exe train -e=10 -b=32云端GPU免费训练</span></p><blockquote><p><span>返回sucess状态，代表提交离线训练成功</span></p><p><span>训练结束会以微信和邮件的形式发送结果通知</span></p></blockquote><h4><a name="方式三windows命令行调试" class="md-header-anchor"></a><span>方式三：windows命令行调试</span></h4><h5><a name="1-下载项目并解压-n177" class="md-header-anchor"></a><span>1. 下载项目并解压</span></h5><h5><a name="2-打开运行输入cmd打开终端" class="md-header-anchor"></a><span>2. 打开运行，输入cmd，打开终端</span></h5><blockquote><p><span>Win+R 输入cmd</span></p></blockquote><h5><a name="3-使用终端进入到项目的根目录下" class="md-header-anchor"></a><span>3. 使用终端进入到项目的根目录下</span></h5><p><span>首先进入到项目对应的磁盘中，然后执行</span></p><blockquote><p><span>cd path\to\project</span></p><p><span>Windows用户使用 flyai.exe</span></p></blockquote><h5><a name="4-本地开发调试" class="md-header-anchor"></a><span>4. 本地开发调试</span></h5><p><span>执行下列命令本地安装环境并调试（第一次使用需要使用微信扫码登录）</span></p><blockquote><p><span>flyai.exe test</span></p></blockquote><p><span>执行test命令，会自动下载100条测试数据到项目下</span></p><p><span>如果出现 No Model Name &quot;xxx&quot;错误，需在 requirements.txt 填写项目依赖</span></p><p><span>如果使用本地IDE开发，可以自行安装 requirements.txt 中的依赖，运行 main.py 即可</span></p><h5><a name="5提交到gpu训练" class="md-header-anchor"></a><span>5.提交到GPU训练</span></h5><p><span>项目中有新的Python包引用，必须在 requirements.txt 文件中指定包名，否则线上运行会找不到包。</span></p><p><span>不填写版本号将默认安装最新版</span></p><p><span>在终端下执行</span></p><blockquote><p><span>flyai.exe train</span></p></blockquote><p><span>返回sucess状态，代表提交离线训练成功</span></p><p><span>训练结束会以微信和邮件的形式发送结果通知</span></p><p><span>完整训练设置执行代码示例：</span></p><blockquote><p><span>flyai.exe train -b=32 -e=10</span></p></blockquote><p><span>通过执行训练命令，整个数据集循环10次，每次训练读取的数据量为 32 。</span></p><hr /><h4><a name="a-namedivnmac和linux调试a" class="md-header-anchor"></a><a name="div_n"><span>Mac和Linux调试</span></a></h4><h5><a name="方式一命令行调试" class="md-header-anchor"></a><span>方式一：命令行调试</span></h5><h5><a name="1-下载项目并解压-n208" class="md-header-anchor"></a><span>1. 下载项目并解压</span></h5><h5><a name="2-使用终端进入到项目的根目录下" class="md-header-anchor"></a><span>2. 使用终端进入到项目的根目录下</span></h5><blockquote><p><span>cd /path/to/project</span></p><p><span>Mac和Linux用户使用 ./flyai 脚本文件</span></p></blockquote><h5><a name="3-初始化环境并登录" class="md-header-anchor"></a><span>3. 初始化环境并登录</span></h5><p><span>授权flyai脚本</span></p><blockquote><p><span>chmod +x ./flyai</span></p></blockquote><h5><a name="4-本地开发调试-n217" class="md-header-anchor"></a><span>4. 本地开发调试</span></h5><p><span>执行下列命令本地安装环境并调试（第一次使用需要使用微信扫码登录）</span></p><blockquote><p><span>./flyai  test   注意:如果pip安装中出现 permission denied 错误，需使用sudo运行</span></p></blockquote><p><span>执行test命令，会自动下载100条测试数据到项目下</span></p><p><span>如果出现 No Model Name &quot;xxx&quot;错误，需在 requirements.txt 填写项目依赖</span></p><p><span>如果使用本地IDE开发，可以自行安装 requirements.txt 中的依赖，运行 main.py 即可</span></p><h5><a name="5提交到gpu训练-n224" class="md-header-anchor"></a><span>5.提交到GPU训练</span></h5><p><span>项目中有新的Python包引用，必须在 requirements.txt 文件中指定包名，否则线上运行会找不到包。</span></p><p><span>不填写版本号将默认安装最新版</span></p><p><span>在终端下执行</span></p><blockquote><p><span>./flyai train </span></p></blockquote><p><span>返回sucess状态，代表提交离线训练成功</span></p><p><span>训练结束会以微信和邮件的形式发送结果通知</span></p><p><span>完整训练设置执行代码示例：</span></p><blockquote><p><span>./flyai train -b=32 -e=10</span></p></blockquote><p><span>通过执行训练命令，整个数据集循环10次，每次训练读取的数据量为 32 。</span></p><h5><a name="方式二使用jupyter调试-n236" class="md-header-anchor"></a><span>方式二：使用Jupyter调试</span></h5><p><span>在终端执行命令 ./flyai ide 打开调试环境，扫码登录成功之后</span></p><h5><a name="1本地运行-n238" class="md-header-anchor"></a><span>1.本地运行</span></h5><p><span>在jupter中运行 run main.py 命令即可在本地训练调试代码</span></p><p><span>如果出现 No Model Name &quot;xxx&quot;错误，需在 requirements.txt 填写项目依赖</span></p><h5><a name="2提交到gpu训练-n241" class="md-header-anchor"></a><span>2.提交到GPU训练</span></h5><p><span>项目中有新的Python包引用，必须在 requirements.txt 文件中指定包名，否则线上运行会找不到包。</span></p><p><span>不填写版本号将默认安装最新版</span></p><p><span>在jupyter环境下运行  ! ./flyai train -e=10 -b=32  将代码提交到云端GPU免费训练</span></p><blockquote><p><span>返回sucess状态，代表提交离线训练成功</span></p><p><span>训练结束会以微信和邮件的形式发送结果通知</span></p></blockquote><h3><a name="设置自己的python环境" class="md-header-anchor"></a><span>设置自己的Python环境</span></h3><h5><a name="windows用户" class="md-header-anchor"></a><span>Windows用户</span></h5><blockquote><p><span>flyai.exe path=xxx 可以设置自己的Python路径</span></p><p><span>flyai.exe path=flyai 恢复系统默认Pyton路径</span></p></blockquote><h5><a name="maclinux用户" class="md-header-anchor"></a><span>Mac/linux用户</span></h5><blockquote><p><span>./flyai path=xxx 可以设置自己的Python路径</span></p><p><span>./flyai path=flyai 恢复系统默认Pyton路径</span></p></blockquote><hr /><h4><a name="a-namediv3样例项目代码详细说明a" class="md-header-anchor"></a><a name="div3"><span>样例项目代码详细说明</span></a></h4><ul><li><p><code>main.py</code></p><blockquote><p><strong><span>样例代码中已做简单实现，可供查考。</span></strong></p><p><span>程序入口，编写算法，训练模型的文件。在该文件中实现自己的算法。</span></p><p><span>通过</span><code>dataset.py</code><span>中的</span><code>next_batch</code><span>方法获取训练和测试数据。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'''</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">Flyai库中的提供的数据处理方法</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">传入整个数据训练多少轮，每批次批大小</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">dataset</span> = <span class="cm-variable">Dataset</span>(<span class="cm-variable">epochs</span>=<span class="cm-variable">args</span>.<span class="cm-property">EPOCHS</span>, <span class="cm-variable">batch</span>=<span class="cm-variable">args</span>.<span class="cm-property">BATCH</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#获取训练数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x_train</span>, <span class="cm-variable">y_train</span> = <span class="cm-variable">dataset</span>.<span class="cm-property">next_train_batch</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#获取验证数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x_val</span>, <span class="cm-variable">y_val</span> = <span class="cm-variable">dataset</span>.<span class="cm-property">next_validation_batch</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 198px;"></div><div class="CodeMirror-gutters" style="display: none; height: 198px;"></div></div></div></pre><p><span>通过</span><code>model.py</code><span>中的</span><code>save_model</code><span>方法保存模型</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 模型操作辅助类</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span> = <span class="cm-variable">Model</span>(<span class="cm-variable">dataset</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span>.<span class="cm-property">save_model</span>(<span class="cm-variable">YOU_NET</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 66px;"></div><div class="CodeMirror-gutters" style="display: none; height: 66px;"></div></div></div></pre><p><strong><span>如果使用</span><code>PyTorch</code><span>框架，需要在</span><code>net.py</code><span>文件中实现网络。其它用法同上。</span></strong></p></blockquote></li><li><p><code>processor.py</code></p><blockquote><p><strong><span>样例代码中已做简单实现，可供查考。</span></strong></p><p><span>处理数据的输入输出文件，把通过csv文件返回的数据，处理成能让程序识别、训练的矩阵。</span></p><p><span>可以自己定义输入输出的方法名，在</span><code>app.yaml</code><span>中声明即可。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">input_x</span>(<span class="cm-variable-2">self</span>, <span class="cm-error">$</span><span class="cm-variable">INPUT_PARAMS</span>):</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  参数为csv中作为输入x的一条数据，该方法会被dataset.next_train_batch()</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  和dataset.next_validation_batch()多次调用。可在该方法中做数据增强</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  该方法字段与app.yaml中的input:-&gt;columns:对应</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">output_x</span>(<span class="cm-variable-2">self</span>, <span class="cm-error">$</span><span class="cm-variable">INPUT_PARAMS</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; <span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  参数为csv中作为输入x的一条数据，该方法会被dataset.next_train_batch()</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  和dataset.next_validation_batch()多次调用。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  该方法字段与app.yaml中的input:-&gt;columns:对应</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">input_y</span>(<span class="cm-variable-2">self</span>, <span class="cm-error">$</span><span class="cm-variable">OUTPUT_PARAMS</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  参数为csv中作为输入y的一条数据，该方法会被dataset.next_train_batch()</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  和dataset.next_validation_batch()多次调用。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  该方法字段与app.yaml中的output:-&gt;columns:对应</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">output_y</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">data</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  输出的结果，会被dataset.to_categorys(data)调用</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :param data: 预测返回的数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :return: 返回预测的标签</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 704px;"></div><div class="CodeMirror-gutters" style="display: none; height: 704px;"></div></div></div></pre></blockquote><h5><a name="" class="md-header-anchor"></a><span> </span></h5></li><li><p><code>model.py</code></p><blockquote><p><strong><span>样例代码中已做简单实现，可供查考。</span></strong></p><p><span>训练好模型之后可以继承</span><code>flyai.model.base</code><span>包中的</span><code>base</code><span>重写下面三个方法实现模型的保存、验证和使用。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">predict</span>(<span class="cm-variable-2">self</span>, <span class="cm-operator">**</span><span class="cm-variable">data</span>):</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp;  使用模型</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :param data: 模型的输入的一个或多个参数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp;  :return:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">predict_all</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">datas</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  （必须实现的方法）评估模型，对训练的好的模型进行打分</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp; &nbsp;  :param datas: 验证集上的随机数据，类型为list</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string"> &nbsp; &nbsp;  :return outputs: 返回调用模型评估之后的list数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">pass</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">save_model</span>(<span class="cm-variable-2">self</span>, <span class="cm-variable">network</span>, <span class="cm-variable">path</span>=<span class="cm-variable">MODEL_PATH</span>, <span class="cm-variable">name</span>=<span class="cm-variable">MODEL_NAME</span>, <span class="cm-variable">overwrite</span>=<span class="cm-keyword">False</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">'''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  保存模型</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :param network: 训练模型的网络</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :param path: 要保存模型的路径</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :param name: 要保存模型的名字</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :param overwrite: 是否覆盖当前模型</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  :return:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">  '''</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">self</span>.<span class="cm-property">check</span>(<span class="cm-variable">path</span>, <span class="cm-variable">overwrite</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 594px;"></div><div class="CodeMirror-gutters" style="display: none; height: 594px;"></div></div></div></pre></blockquote><p><span>predict_all的参数格式</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">dataset</span> <span class="cm-keyword">import</span> <span class="cm-variable">Dataset</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">model</span> <span class="cm-keyword">import</span> <span class="cm-variable">Model</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">dataset</span> = <span class="cm-variable">Dataset</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span> = <span class="cm-variable">Model</span>(<span class="cm-variable">dataset</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># predict_all的参数是多个字典组成的列表类型的数据集结构</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x_test</span> = [{<span class="cm-string">'image_path'</span>: <span class="cm-string">'img/10479.jpg'</span>}, {<span class="cm-string">'image_path'</span>: <span class="cm-string">'img/14607.jpg'</span>}]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">y_test</span> = [{<span class="cm-string">'label'</span>: <span class="cm-number">39</span>}, {<span class="cm-string">'label'</span>: <span class="cm-number">4</span>}]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">preds</span> = <span class="cm-variable">model</span>.<span class="cm-property">predict_all</span>(<span class="cm-variable">x_test</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">labels</span> = [<span class="cm-variable">i</span>[<span class="cm-string">'label'</span>] <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-variable">y_test</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">labels</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># predict是单个字典模式</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">img_path</span> = <span class="cm-string">'img/851.jpg'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">p</span> = <span class="cm-variable">model</span>.<span class="cm-property">predict</span>(<span class="cm-variable">image_path</span>=<span class="cm-variable">img_path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">p</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 374px;"></div><div class="CodeMirror-gutters" style="display: none; height: 374px;"></div></div></div></pre><p>&nbsp;</p></li></ul><hr /><h4><a name="a-namediv4预训练模型使用样例a" class="md-header-anchor"></a><a name="div4"><span>预训练模型使用样例</span></a></h4><h5><a name="keras预训练模型使用样例" class="md-header-anchor"></a><span>Keras预训练模型使用样例：</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">keras</span>.<span class="cm-property">applications</span> <span class="cm-keyword">import</span> <span class="cm-variable">densenet</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">utils</span> <span class="cm-keyword">import</span> <span class="cm-variable">remote_helper</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span>=<span class="cm-variable">remote_helper</span>.<span class="cm-property">get_remote_date</span>(<span class="cm-string">"https://www.flyai.com/m/v0.8|densenet169_weights_tf_dim_ordering_tf_kernels_notop.h5"</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">densenet_notop</span> = <span class="cm-variable">densenet</span>.<span class="cm-property">DenseNet169</span>(<span class="cm-variable">include_top</span>=<span class="cm-keyword">False</span>, <span class="cm-variable">weights</span>=<span class="cm-keyword">None</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">densenet_notop</span>.<span class="cm-property">load_weights</span>(<span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># densenet_notop = densenet.DenseNet169(include_top=False， weights='imagenet')</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 这行代码与上面等同，只不过一个是调用FlyAI提供的预训练模型地址，一个是外网的地址</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> = <span class="cm-variable">densenet_notop</span>.<span class="cm-property">output</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> = <span class="cm-variable">GlobalAveragePooling2D</span>()(<span class="cm-variable">x</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> = <span class="cm-variable">Dense</span>(<span class="cm-number">2048</span>, <span class="cm-variable">activation</span>=<span class="cm-string">'relu'</span>)(<span class="cm-variable">x</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">predictions</span> = <span class="cm-variable">Dense</span>(<span class="cm-number">200</span>, <span class="cm-variable">activation</span>=<span class="cm-string">'softmax'</span>)(<span class="cm-variable">x</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span> = <span class="cm-variable">Model</span>(<span class="cm-variable">inputs</span>=<span class="cm-variable">densenet_notop</span>.<span class="cm-property">input</span>, <span class="cm-variable">outputs</span>=<span class="cm-variable">predictions</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span>.<span class="cm-property">compile</span>(...)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span>.<span class="cm-property">fit_generator</span>(...)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 330px;"></div><div class="CodeMirror-gutters" style="display: none; height: 330px;"></div></div></div></pre><h5><a name="pytorch预训练模型使用样例" class="md-header-anchor"></a><span>PyTorch预训练模型使用样例：</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">torchvision</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">utils</span> <span class="cm-keyword">import</span> <span class="cm-variable">remote_helper</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span>=<span class="cm-variable">remote_helper</span>.<span class="cm-property">get_remote_date</span>(<span class="cm-string">"https://www.flyai.com/m/resnet50-19c8e357.pth"</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span> = <span class="cm-variable">torchvision</span>.<span class="cm-property">models</span>.<span class="cm-property">resnet50</span>(<span class="cm-variable">pretrained</span> = <span class="cm-keyword">False</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># model = torchvision.models.resnet50(pretrained = True)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 这行代码与上面等同，只不过一个是调用FlyAI提供的预训练模型地址，一个是外网的地址</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span>.<span class="cm-property">load_state_dict</span>(<span class="cm-variable">torch</span>.<span class="cm-property">load</span>(<span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 将其中的层直接替换为我们需要的层即可 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">model</span>.<span class="cm-property">fc</span> = <span class="cm-variable">nn</span>.<span class="cm-property">Linear</span>(<span class="cm-number">2048</span>,<span class="cm-number">200</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 198px;"></div><div class="CodeMirror-gutters" style="display: none; height: 198px;"></div></div></div></pre><h5><a name="tensorflow加载bert预训练模型样例" class="md-header-anchor"></a><span>Tensorflow加载Bert预训练模型样例：</span></h5><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">tensorflow</span> <span class="cm-keyword">as</span> <span class="cm-variable">tf</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">bert</span>.<span class="cm-property">modeling</span> <span class="cm-keyword">as</span> <span class="cm-variable">modeling</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 必须使用该方法下载模型，然后加载</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flyai</span>.<span class="cm-property">utils</span> <span class="cm-keyword">import</span> <span class="cm-variable">remote_helper</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">path</span> = <span class="cm-variable">remote_helper</span>.<span class="cm-property">get_remote_date</span>(<span class="cm-string">'https://www.flyai.com/m/uncased_L-12_H-768_A-12.zip'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">'path:'</span>, <span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data_root</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">splitext</span>(<span class="cm-variable">path</span>)[<span class="cm-number">0</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">'data_root:'</span>, <span class="cm-variable">data_root</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 解析link解压后的路径</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data_root</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">splitext</span>(<span class="cm-variable">path</span>)[<span class="cm-number">0</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 【注意】使用改路径前首先确认是否和预训练model下载解压路径是否一致</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-string">'data_root:'</span>, <span class="cm-variable">data_root</span>) </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 使用当前路径</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 预训练model路径存放地址和link解析路径不一致时使用下面方法直接指定】</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># data_root = os.path.join(os.path.curdir, 'data/input/XXXX/XXXXX')</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">bert_config_file</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">join</span>(<span class="cm-variable">data_root</span>, <span class="cm-string">'bert_config.json'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">bert_config</span> = <span class="cm-variable">modeling</span>.<span class="cm-property">BertConfig</span>.<span class="cm-property">from_json_file</span>(<span class="cm-variable">bert_config_file</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">init_checkpoint</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">join</span>(<span class="cm-variable">data_root</span>, <span class="cm-string">'bert_model.ckpt'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">bert_vocab_file</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">join</span>(<span class="cm-variable">data_root</span>, <span class="cm-string">'vocab.txt'</span>)</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 462px;"></div><div class="CodeMirror-gutters" style="display: none; height: 462px;"></div></div></div></pre><h3><a name="flyai全球人工智能专业开发平台一站式服务平台httpsflyaicom" class="md-header-anchor"></a><a href='https://flyai.com'><span>FlyAI全球人工智能专业开发平台，一站式服务平台</span></a></h3><p><strong><span>扫描下方二维码，及时获取FlyAI最新消息，抢先体验最新功能。</span></strong></p><p>&nbsp;</p><p><a href='https://flyai.com'><img src="https://www.flyai.com/images/coding.png" referrerpolicy="no-referrer" alt="GPL LICENSE"></a></p><p>&nbsp;</p></div>
+</body>
+</html>

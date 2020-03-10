@@ -1,0 +1,4 @@
+flyai
+numpy
+keras==2.2.4
+keras_vggface

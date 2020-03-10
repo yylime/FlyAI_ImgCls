@@ -1,0 +1,37 @@
+---
+name: 垃圾分类
+author: jiayi
+description: 垃圾分类
+topic: 垃圾分类
+algorithm: CNN
+language: Python3
+
+framework: PyTorch
+
+data:
+  id: ChestXray02
+  name: 垃圾分类数据集
+  category: image
+
+model:
+  processor: Processor
+  input_x: input_x
+  output_x: input_x
+  input_y: input_y
+  output_y: output_y
+  input:
+    columns:
+      - name: image_path
+        type: url
+    to_type: float
+    to_shape: [-1,224,224,3]
+  output:
+    columns:
+      - name: labels
+        type: int
+    to_type: int
+    to_shape: [4]
+servers:
+  - id: flyai
+    url: https://www.flyai.com
+...
