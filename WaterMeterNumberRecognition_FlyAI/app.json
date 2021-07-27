@@ -1,0 +1,47 @@
+{
+    "name": "WaterMeterNumberRecognition",
+    "author": "小林子",
+    "description": "WaterMeterNumberRecognition",
+    "topic": "图像识别",
+    "model": {
+        "input": {
+            "columns": [
+                {
+                    "name": "image_path",
+                    "type": "str",
+                    "sample": ".\/data\/input\/image\/0.jpg"
+                }
+            ]
+        },
+        "output": {
+            "columns": [
+                {
+                    "name": "label",
+                    "type": "str",
+                    "sample": "0,1,2,7,12"
+                }
+            ]
+        }
+    },
+    "data": {
+        "source": [
+            {
+                "id": "WaterMeterNumberRecognition",
+                "name": "WaterMeterNumberRecognition",
+                "source": "WaterMeterNumberRecognition"
+            }
+        ]
+    },
+    "project": {
+        "id": "WaterMeterNumberRecognition",
+        "language": "Python3",
+        "algorithm": "CNN",
+        "framework": "PyTorch",
+        "train": {
+            "file": "main.py"
+        },
+        "prediction": {
+            "file": "prediction.py"
+        }
+    }
+}

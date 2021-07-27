@@ -10,3 +10,5 @@
 [结直肠癌组织纹理分类](https://www.flyai.com/d/ColorRectalCancerClassification) score:98.8 排名：2/158
 
 [脸部年龄判断](https://www.flyai.com/d/FacialAgeTenClass) score:70.14 排名: 2/130
+
+[水表编号智能识别赛](https://www.flyai.com/d/320) score:91.50 排名: 3/63
