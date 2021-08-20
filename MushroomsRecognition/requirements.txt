@@ -1,0 +1,12 @@
+flyai==0.6.6
+numpy
+scipy
+opencv-python
+matplotlib
+scipy
+Pillow==6.2.2
+torch==1.7.0
+torchvision==0.8.0
+timm==0.4.12
+efficientnet_pytorch
+lightgbm
