@@ -4,7 +4,7 @@ scipy
 opencv-python
 matplotlib
 scipy
-Pillow==6.2.2
+Pillow==9.0.0
 torch==1.7.0
 torchvision==0.8.0
 timm==0.4.12
