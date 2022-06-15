@@ -3,7 +3,7 @@ scikit-learn==0.22.2.post1
 scikit-image==0.16.2
 pandas==1.0.3
 numpy==1.18.3
-Pillow==7.1.1
+Pillow==9.0.1
 opencv-python
 efficientnet_pytorch
 timm
