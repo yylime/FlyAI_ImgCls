@@ -1,7 +1,10 @@
-# Match_Codes
-参加竞赛项目代码
+# 参加FLYAI图像分类竞赛项目代码
+
+- 2022-06-10 添加遥感图像自然场景识别
 
 竞赛名称/排名：
+
+[遥感图像自然场景识别](https://www.flyai.com/d/329) score:99.78 排名: 10/62 (2022-06-10)
 
 [X光片检测患者肺炎](https://www.flyai.com/d/ChestXray02) score:65.43 排名：3/171
 

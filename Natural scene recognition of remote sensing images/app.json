@@ -1,0 +1,24 @@
+{
+  "project_id": "ReversoContextClass",
+  "data_id": "ReversoContextClass",
+  "model": {
+    "input": {
+      "columns": [
+        {
+          "name": "image_path",
+          "type": "str",
+          "sample": "./images/785808964.jpg"
+        }
+      ]
+    },
+    "output": {
+      "columns": [
+        {
+          "name": "label",
+          "type": "str",
+          "sample": "circularfarmland"
+        }
+      ]
+    }
+  }
+}
