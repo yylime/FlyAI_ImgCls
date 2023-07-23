@@ -1,7 +1,7 @@
 flyai
 numpy
 Pillow==8.2.0
-torch==1.2.0
+torch==1.13.1
 torchvision==0.4.0
 timm
 efficientnet_pytorch
